@@ -47,17 +47,17 @@ Now your user is added to the system and all servers you have access to is autho
 Runs on the same machine as the Plex Media Server. Copy the props.py.sample and rename to props.py. Invoke the script via a cron job. Every minute is often enough.
 ###Config
 **BASE_URL**
-
 Server url without trailing slash. There is already an instance running at http://filllip.ddns.net:8080. Feel free to use.
+
 **SERVER_ID**
-
 Log into plex.tv and find "machineIdentifier" for your server at https://plex.tv/pms/servers.xml
+
 **DB_PATH**
-
 Path to Plex DB
-**ADMIN_ACCOUNT_REAL_ID**
 
+**ADMIN_ACCOUNT_REAL_ID**
 In local Plex DB the admins account ID is 1 (most likely your account). Log into plex.tv and find your account ID at https://plex.tv/users/account
+
 ###Requirements
 * Python >=2.7
 * SQLite3
