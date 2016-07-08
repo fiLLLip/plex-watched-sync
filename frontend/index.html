@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="PlexWatchSync" ng-strict-di>
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+        crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+</head>
+
+<body>
+    <div ng-controller="LoginController">
+        <form role="form">
+            <div class="form-group"><label>Username</label><input type="text" ng-model="loginForm.username" class="form-control"></div>
+            <div class="form-group"><label>Password</label><input type="password" ng-model="loginForm.password" class="form-control"></div>
+            <button ng-click="loginAction()" ng-disabled="loginForm.working" class="btn btn-default">Login to plex and auth server</button>
+        </form>
+        <pre>{{loginForm.response}}</pre>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
+    <script src="./assets/appModule.js"></script>
+    <script src="./assets/loginController.js"></script>
+</body>
+
+</html>
