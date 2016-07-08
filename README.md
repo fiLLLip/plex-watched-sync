@@ -39,7 +39,7 @@ curl -X POST -H "X-Plex-Product: WatchStateSync" -H "X-Plex-Version: 0.1" -H "X-
 ```
 From the response, copy the authorizationToken and use it in the following cURL:
 ```
-curl -X POST -H "X-token: <token>" -H "Cache-Control: no-cache" "http://filllip.ddns.net:8080/user/login"
+curl -X POST -H "X-token: <token>" -H "Cache-Control: no-cache" "http://plexsync.filllip.net:8080/user/login"
 ```
 Now your user is added to the system and all servers you have access to is authorized to read and update your watched data.
 
@@ -47,7 +47,7 @@ Now your user is added to the system and all servers you have access to is autho
 Runs on the same machine as the Plex Media Server. Copy the props.py.sample and rename to props.py. Invoke the script via a cron job. Every minute is often enough.
 ###Config
 **BASE_URL**
-Server url without trailing slash. There is already an instance running at http://filllip.ddns.net:8080. Feel free to use.
+Server url without trailing slash. There is already an instance running at http://plexsync.filllip.net:8080/. Feel free to use.
 
 **SERVER_ID**
 Log into plex.tv and find "machineIdentifier" for your server at https://plex.tv/pms/servers.xml
