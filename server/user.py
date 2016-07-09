@@ -43,6 +43,9 @@ class ResourceLogin(object):
         for server_element in media_container_element:
             servers.add(server_element.attrib['machineIdentifier'])
 
+        # The following action is idempotent, so we can run it without worrying
         for server_id in servers:
             server.Actions.add_account(server_id, account_id)
             account.Actions.add_server(account_id, server_id)
+
+        resp.status = falcon.HTTP_200
