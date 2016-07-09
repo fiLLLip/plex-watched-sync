@@ -7,7 +7,7 @@ This is my first Python project, so be nice :)
 Feel free to contribute!
 
 ###Roadmap
-- [x] Frontend to ease authentication between account and plex.tv
+- [x] ~~Frontend to ease authentication between account and plex.tv~~
 - [ ] Deploy server on cloud VPS
 - [ ] Refactor
 
