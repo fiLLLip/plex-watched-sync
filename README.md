@@ -7,9 +7,9 @@ This is my first Python project, so be nice :)
 Feel free to contribute!
 
 ###Roadmap
-* Frontend to ease authentication between account and plex.tv
-* Deploy server on cloud VPS
-* Refactor
+- [x] Frontend to ease authentication between account and plex.tv
+- [ ] Deploy server on cloud VPS
+- [ ] Refactor
 
 ###License
    Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
@@ -32,6 +32,10 @@ The server application is based on Falcon web framework ( https://falconframewor
 If Redis is installed and running, you can run the server when located in the server folder with ```gunicorn --bind 0.0.0.0:8000 serve:app```
 
 ###Security
+For your server to get access to an accounts watched status, the account owner must allow it to do so. In the ```frontend```-folder there is an AngularJS app to easily let your users do this (you must edit the server url in ```controllers.js```.
+If you are using the running instance on http://plexsync.filllip.net:8080/api/, you can direct your users to the following url: http://plexsync.filllip.net:8080/ 
+
+**For the advanced user**
 There is an endpoint to "log in" with a plex user account, to add it to the system and authorize server access to it. 
 First, you need to get an authorization token from plex. You can do that by editing the username and password and running this cURL:
 ```
