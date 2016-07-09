@@ -1,7 +1,9 @@
-angular.module('PlexWatchSync').filter('json', JsonFilter);
+(function () {
+    angular.module('PlexWatchSync').filter('json', JsonFilter);
 
-function JsonFilter() {
-    return function (input) {
-        return JSON.stringify(input, undefined, 4);
-    };
-}
+    function JsonFilter() {
+        return function (input) {
+            return JSON.stringify(input, undefined, 4);
+        };
+    }
+})();
