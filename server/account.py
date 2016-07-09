@@ -96,7 +96,7 @@ class Resource(object):
                                    'Could not decode the request body. The '
                                    'JSON was incorrect.')
 
-        items = result_json['items']
+        items = result_json['watched']
         result = Actions.add_watched_to_account(account_id, items)
         resp.status = falcon.HTTP_202
         jsonresp = {'account_id': account_id, 'tried_to_add': items, 'added': result}

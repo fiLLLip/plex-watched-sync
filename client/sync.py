@@ -7,6 +7,11 @@ import sys
 import time
 import props
 
+# Gunicorn hack... http://bobrochel.blogspot.no/2010/11/bad-servers-chunked-encoding-and.html
+import httplib
+httplib.HTTPConnection._http_vsn = 10
+httplib.HTTPConnection._http_vsn_str = 'HTTP/1.0'
+
 BASE_URL = props.BASE_URL
 SERVER_ID = props.SERVER_ID
 DB_PATH = props.DB_PATH
@@ -16,6 +21,7 @@ ADMIN_ACCOUNT_REAL_ID = props.ADMIN_ACCOUNT_REAL_ID
 def get_request(url, data=None):
     r = requests.get(url, data=json.dumps(data), headers={'X-server-id': SERVER_ID})
     if r.status_code == 404 or r.status_code == 403:
+        print 'GET ' + url + ' returned ' + str(r.status_code)
         return None
     return r.json()
 
@@ -23,6 +29,7 @@ def get_request(url, data=None):
 def put_request(url, data=None):
     r = requests.put(url, data=json.dumps(data), headers={'X-server-id': SERVER_ID})
     if r.status_code == 404 or r.status_code == 403:
+        print 'PUT ' + url + ' returned ' + str(r.status_code)
         return None
     return r.json()
 
@@ -148,7 +155,8 @@ def update_watched():
         watched = plex.get_watched_by(local_account_id)
         if watched is not None and len(watched) > 0:
             res = ws.update_watched_by_account(account_id, watched)
-            print "Added " + str(res['added']) + " items to cloud for account " + str(account_id)
+            if res is not None:
+                print "Added " + str(res['added']) + " items to cloud for account " + str(account_id)
         watched = ws.get_watched_by_account(account_id)
         plex.update_watched(local_account_id, watched)
 
