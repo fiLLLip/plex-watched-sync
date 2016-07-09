@@ -1,1 +1,1 @@
-angular.module('PlexWatchSync', []);
+angular.module('PlexWatchSync', ['ngStorage']);
