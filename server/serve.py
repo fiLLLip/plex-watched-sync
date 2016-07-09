@@ -5,6 +5,7 @@ import account
 import server
 import redis_plex
 import user
+import middleware
 
 # Falcon follows the REST architectural style, meaning (among
 # other things) that you think in terms of resources and state
@@ -14,13 +15,8 @@ import user
 # Init Redis
 redis_instance = redis_plex.connection()
 
-
-def crossdomain(req, resp):
-    resp.set_header('Access-Control-Allow-Origin', '*')
-
-
 # falcon.API instances are callable WSGI apps
-api = falcon.API(middleware=[crossdomain])
+app = falcon.API(middleware=[middleware.Crossdomain()])
 
 # things will handle all requests to the '/things' URL path
 app.add_route('/account/{account_id}', account.Resource())
