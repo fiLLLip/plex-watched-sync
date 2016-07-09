@@ -1,8 +1,7 @@
 angular.module('PlexWatchSync')
-    .controller('LoginController', ['$scope', '$log', '$sessionStorage', '$window', 'PlexService', 'PlexWatchService', LoginController]);
+    .controller('LoginController', ['$scope', '$sessionStorage', '$window', 'PlexService', 'PlexWatchService', LoginController]);
 
-function LoginController($scope, $log, $sessionStorage, $window, plexService, plexWatchService) {
-    $scope.message = 'test';
+function LoginController($scope, $sessionStorage, $window, plexService, plexWatchService) {
     $scope.loginForm = {
         username: '',
         password: '',
