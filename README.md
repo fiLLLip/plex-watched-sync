@@ -1,5 +1,5 @@
 # Plex Watched Sync
-Synchronize watched status between Plex Media Servers. Ready to use! Very convenient if you have access to several Plex Media Servers and use wathed status actively to track your tv-series progress. Already have an instance of the server running, to ease use. See detailed desciption.
+Synchronize watched status between Plex Media Servers. Ready to use! Very convenient if you have access to several Plex Media Servers and use wathed status actively to track your tv-series progress. There is already an instance of the server running, to ease use. See detailed desciption. You can find it at http://plexsync.filllip.net:8080/api/
 
 This is my first Python project, so be nice :)
  
@@ -43,12 +43,12 @@ curl -X POST -H "X-Plex-Product: WatchStateSync" -H "X-Plex-Version: 0.1" -H "X-
 ```
 From the response, copy the authorizationToken and use it in the following cURL:
 ```
-curl -X POST -H "X-token: <token>" -H "Cache-Control: no-cache" "http://plexsync.filllip.net:8080/api/user/login"
+curl -X POST -H "X-token: <token>" -H "Cache-Control: no-cache" "http://<server url>/user/login"
 ```
 Now your user is added to the system and all servers you have access to is authorized to read and update your watched data.
 
 ##Client
-Runs on the same machine as the Plex Media Server. Copy the props.py.sample and rename to props.py. Invoke the script via a cron job. Every minute is often enough.
+Runs on the same machine as the Plex Media Server. Copy the ```props.py.sample``` and rename to ```props.py```. Invoke the script via a cron job. Every 30 minute is often enough.
 ###Config
 **BASE_URL**
 Server url without trailing slash. There is already an instance running at http://plexsync.filllip.net:8080/api/. Feel free to use.
