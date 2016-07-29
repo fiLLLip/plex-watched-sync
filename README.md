@@ -48,7 +48,7 @@ curl -X POST -H "X-token: <token>" -H "Cache-Control: no-cache" "http://<server 
 Now your user is added to the system and all servers you have access to is authorized to read and update your watched data.
 
 ##Client
-Runs on the same machine as the Plex Media Server. Copy the ```props.py.sample``` and rename to ```props.py```. Invoke the script via a cron job. Every 30 minute is often enough.
+Runs on the same machine as the Plex Media Server. Copy the ```props.py.sample``` and rename to ```props.py```. Invoke the script via a cron job. Every 30 minute is often enough. Only tested on Debian at this time, more testers are welcome :)
 ###Config
 **BASE_URL**
 Server url without trailing slash. There is already an instance running at http://plexsync.filllip.net:8080/api/. Feel free to use.
@@ -64,11 +64,11 @@ In local Plex DB the admins account ID is 1 (most likely your account). Log into
 
 ###Requirements
 * Python >=2.7
-* SQLite3
-* Requests
+* SQLite3 (already included in Python I think)
+* Requests http://docs.python-requests.org/en/master/
 
 ###Installation
-```pip install requests sqlite3```
+```pip install requests```
 
 Set up the property file, then add to crontab:
 ```
