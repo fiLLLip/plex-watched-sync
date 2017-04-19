@@ -3,35 +3,35 @@ Synchronize watched status between Plex Media Servers. Ready to use! Very conven
 
 This is my first Python project, so be nice :)
  
-###Collaboration
+### Collaboration
 Feel free to contribute!
 
-###Roadmap
+### Roadmap
 - [x] ~~Frontend to ease authentication between account and plex.tv~~
 - [ ] Deploy server on cloud VPS
 - [ ] Refactor
 
-###License
+### License
    Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
    
    Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License. 
 
-##Server
+## Server
 The server application is based on Falcon web framework ( https://falconframework.org/ ), and running with Redis as the datastore.
 
-###Requirements
+### Requirements
 * Python >=2.7
 * Redis
 * Requests
 * Falcon
 * Gunicorn (or another server for running Falcon)
 
-###Installation
+### Installation
 ```pip install redis requests falcon gunicorn gevent```
 
 If Redis is installed and running, you can run the server when located in the server folder with ```gunicorn --bind 0.0.0.0:8000 serve:app```
 
-###Security
+### Security
 For your server to get access to an accounts watched status, the account owner must allow it to do so. In the ```frontend```-folder there is an AngularJS app to easily let your users do this (you must edit the server url in ```controllers.js```.
 If you are using the running instance on http://plexsync.filllip.net:8080/api/, you can direct your users to the following url: http://plexsync.filllip.net:8080/ 
 
@@ -47,9 +47,9 @@ curl -X POST -H "X-token: <token>" -H "Cache-Control: no-cache" "http://<server 
 ```
 Now your user is added to the system and all servers you have access to is authorized to read and update your watched data.
 
-##Client
+## Client
 Runs on the same machine as the Plex Media Server. Copy the ```props.py.sample``` and rename to ```props.py```. Invoke the script via a cron job. Every 30 minute is often enough. Only tested on Debian at this time, more testers are welcome :)
-###Config
+### Config
 **BASE_URL**
 Server url without trailing slash. There is already an instance running at http://plexsync.filllip.net:8080/api/. Feel free to use.
 
@@ -62,12 +62,12 @@ Path to Plex DB
 **ADMIN_ACCOUNT_REAL_ID**
 In local Plex DB the admins account ID is 1 (most likely your account). Log into plex.tv and find your account ID at https://plex.tv/users/account
 
-###Requirements
+### Requirements
 * Python >=2.7
 * SQLite3 (already included in Python I think)
 * Requests http://docs.python-requests.org/en/master/
 
-###Installation
+### Installation
 ```pip install requests```
 
 Set up the property file, then add to crontab:
