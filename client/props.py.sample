@@ -1,6 +1,6 @@
 # Edit this file!
 
-BASE_URL = ""  # Server url without trailing slash.
+BASE_URL = "http://plexsync.filllip.net:8080/api"  # Server url without trailing slash.
 SERVER_ID = ""  # Log into plex and find "machineIdentifier" for this server at https://plex.tv/pms/servers.xml
-DB_PATH = ""  # Path to Plex DB
+DB_PATH = "/var/lib/plexmediaserver/Application Support/Plex Media Server/Plug-in Support/Databases/com.plexapp.plugins.library.db"  # Path to Plex DB
 ADMIN_ACCOUNT_REAL_ID = 1  # In local Plex DB admins account is 1 (most like your account). Log into plex and find your ID here https://plex.tv/users/account
